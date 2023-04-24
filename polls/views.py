@@ -1,9 +1,4 @@
-# from django.shortcuts import render
-# from django.http import HttpResponse
 
-# # Create your views here.
-
-# # def GoogleCalendarInitView(request):
 
 
 from google.oauth2.credentials import Credentials
@@ -17,7 +12,6 @@ import datetime
 import json
 
 def GoogleCalendarInitView(request):
-    # Set up the OAuth2 flow
     flow = InstalledAppFlow.from_client_secrets_file(
         '/home/mayank/Desktop/placement/convin/mysite/polls/client_secret_1052611409115-3maref8c47trunr8foe7lrvhkp0dh642.apps.googleusercontent.com.json',
         scopes=['https://www.googleapis.com/auth/calendar.readonly'],
@@ -25,7 +19,6 @@ def GoogleCalendarInitView(request):
     )
     auth_url, _ = flow.authorization_url(prompt='consent')
     print("auth_url is =  ", auth_url)
-    # Redirect the user to the authorization page
     return redirect(auth_url)
 
 
